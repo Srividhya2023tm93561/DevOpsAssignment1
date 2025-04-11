@@ -1,0 +1,71 @@
+Started by user Srividhya
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\DevOps_Assignment1_Pipeline
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+[2025-04-11T18:05:00.813Z] The recommended git tool is: NONE
+[2025-04-11T18:05:00.815Z] using credential jenkins_integration
+[2025-04-11T18:05:00.885Z]  > C:\Program Files\Git\cmd\git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\DevOps_Assignment1_Pipeline\.git # timeout=10
+[2025-04-11T18:05:00.949Z] Fetching changes from the remote Git repository
+[2025-04-11T18:05:00.975Z]  > C:\Program Files\Git\cmd\git.exe config remote.origin.url https://github.com/Srividhya2023tm93561/DevopsAssignment1.git # timeout=10
+[2025-04-11T18:05:01.017Z] Fetching upstream changes from https://github.com/Srividhya2023tm93561/DevopsAssignment1.git
+[2025-04-11T18:05:01.017Z]  > C:\Program Files\Git\cmd\git.exe --version # timeout=10
+[2025-04-11T18:05:01.045Z]  > git --version # 'git version 2.45.1.windows.1'
+[2025-04-11T18:05:01.045Z] using GIT_ASKPASS to set credentials 
+[2025-04-11T18:05:01.058Z]  > C:\Program Files\Git\cmd\git.exe fetch --tags --force --progress -- https://github.com/Srividhya2023tm93561/DevopsAssignment1.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2025-04-11T18:05:01.963Z]  > C:\Program Files\Git\cmd\git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+[2025-04-11T18:05:02.014Z] Checking out Revision 50ed94dbaff5333406db002bbfce94ad4ffea742 (refs/remotes/origin/main)
+[2025-04-11T18:05:02.014Z]  > C:\Program Files\Git\cmd\git.exe config core.sparsecheckout # timeout=10
+[2025-04-11T18:05:02.061Z]  > C:\Program Files\Git\cmd\git.exe checkout -f 50ed94dbaff5333406db002bbfce94ad4ffea742 # timeout=10
+[2025-04-11T18:05:02.164Z] Commit message: "Rename StagingDeployment.sh to StagingDeploy.sh"
+[2025-04-11T18:05:02.164Z]  > C:\Program Files\Git\cmd\git.exe rev-list --no-walk 50ed94dbaff5333406db002bbfce94ad4ffea742 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Main.java)
+[Pipeline] bat
+[2025-04-11T18:05:02.695Z] 
+[2025-04-11T18:05:02.695Z] C:\ProgramData\Jenkins\.jenkins\workspace\DevOps_Assignment1_Pipeline>javac Main.java 
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Main.java)
+[Pipeline] bat
+[2025-04-11T18:05:04.518Z] 
+[2025-04-11T18:05:04.518Z] C:\ProgramData\Jenkins\.jenkins\workspace\DevOps_Assignment1_Pipeline>java Main 
+[2025-04-11T18:05:04.518Z] Devops Assignment 1 Project - Srividhya 2023tm93561
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Staging)
+Stage "Deploy to Staging" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Production)
+[Pipeline] input
+[2025-04-11T18:05:05.386Z] Approve deployment to PRODUCTION?
+[2025-04-11T18:05:05.386Z] Proceed or Abort
+[2025-04-11T18:05:16.131Z] Approved by Srividhya
+Stage "Deploy to Production" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+[2025-04-11T18:05:16.430Z] ✅ Build passed.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
