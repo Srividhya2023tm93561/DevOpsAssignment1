@@ -1,0 +1,97 @@
+Started by user Srividhya
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\DevOps_Assignment1_Pipeline
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+[2025-04-11T18:17:22.104Z] The recommended git tool is: NONE
+[2025-04-11T18:17:22.104Z] using credential jenkins_integration
+[2025-04-11T18:17:22.121Z]  > C:\Program Files\Git\cmd\git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\DevOps_Assignment1_Pipeline\.git # timeout=10
+[2025-04-11T18:17:22.171Z] Fetching changes from the remote Git repository
+[2025-04-11T18:17:22.187Z]  > C:\Program Files\Git\cmd\git.exe config remote.origin.url https://github.com/Srividhya2023tm93561/DevopsAssignment1.git # timeout=10
+[2025-04-11T18:17:22.232Z] Fetching upstream changes from https://github.com/Srividhya2023tm93561/DevopsAssignment1.git
+[2025-04-11T18:17:22.232Z]  > C:\Program Files\Git\cmd\git.exe --version # timeout=10
+[2025-04-11T18:17:22.292Z]  > git --version # 'git version 2.45.1.windows.1'
+[2025-04-11T18:17:22.292Z] using GIT_ASKPASS to set credentials 
+[2025-04-11T18:17:22.298Z]  > C:\Program Files\Git\cmd\git.exe fetch --tags --force --progress -- https://github.com/Srividhya2023tm93561/DevopsAssignment1.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2025-04-11T18:17:23.468Z]  > C:\Program Files\Git\cmd\git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+[2025-04-11T18:17:23.521Z] Checking out Revision e489737ed988bca87a7530b6fdb182471be0bd26 (refs/remotes/origin/main)
+[2025-04-11T18:17:23.521Z]  > C:\Program Files\Git\cmd\git.exe config core.sparsecheckout # timeout=10
+[2025-04-11T18:17:23.587Z]  > C:\Program Files\Git\cmd\git.exe checkout -f e489737ed988bca87a7530b6fdb182471be0bd26 # timeout=10
+[2025-04-11T18:17:23.699Z] Commit message: "Update Main.java to Handle Divide by 0 case"
+[2025-04-11T18:17:23.701Z]  > C:\Program Files\Git\cmd\git.exe rev-list --no-walk c59bcc4ff5d0b7e925106948e8419de66fa9ca11 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Main.java)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] bat
+[2025-04-11T18:17:24.420Z] 
+[2025-04-11T18:17:24.420Z] C:\ProgramData\Jenkins\.jenkins\workspace\DevOps_Assignment1_Pipeline>javac Main.java 
+[2025-04-11T18:17:24.993Z] Main.java:10: error: no suitable method found for println(String,int)
+[2025-04-11T18:17:24.993Z]         System.out.println("Dividing by 0:{}",1/0);
+[2025-04-11T18:17:24.993Z]                   ^
+[2025-04-11T18:17:24.993Z]     method PrintStream.println() is not applicable
+[2025-04-11T18:17:24.993Z]       (actual and formal argument lists differ in length)
+[2025-04-11T18:17:24.993Z]     method PrintStream.println(boolean) is not applicable
+[2025-04-11T18:17:24.993Z]       (actual and formal argument lists differ in length)
+[2025-04-11T18:17:24.993Z]     method PrintStream.println(char) is not applicable
+[2025-04-11T18:17:24.993Z]       (actual and formal argument lists differ in length)
+[2025-04-11T18:17:24.993Z]     method PrintStream.println(int) is not applicable
+[2025-04-11T18:17:24.993Z]       (actual and formal argument lists differ in length)
+[2025-04-11T18:17:24.993Z]     method PrintStream.println(long) is not applicable
+[2025-04-11T18:17:24.993Z]       (actual and formal argument lists differ in length)
+[2025-04-11T18:17:24.993Z]     method PrintStream.println(float) is not applicable
+[2025-04-11T18:17:24.994Z]       (actual and formal argument lists differ in length)
+[2025-04-11T18:17:24.994Z]     method PrintStream.println(double) is not applicable
+[2025-04-11T18:17:24.994Z]       (actual and formal argument lists differ in length)
+[2025-04-11T18:17:24.994Z]     method PrintStream.println(char[]) is not applicable
+[2025-04-11T18:17:24.994Z]       (actual and formal argument lists differ in length)
+[2025-04-11T18:17:24.994Z]     method PrintStream.println(String) is not applicable
+[2025-04-11T18:17:24.994Z]       (actual and formal argument lists differ in length)
+[2025-04-11T18:17:24.994Z]     method PrintStream.println(Object) is not applicable
+[2025-04-11T18:17:24.994Z]       (actual and formal argument lists differ in length)
+[2025-04-11T18:17:24.994Z] 1 error
+[Pipeline] echo
+[2025-04-11T18:17:25.056Z] 🚨 Build failed: hudson.AbortException: script returned exit code 1
+[Pipeline] error
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Main.java)
+Stage "Run Main.java" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Staging)
+Stage "Deploy to Staging" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Production)
+Stage "Deploy to Production" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+[2025-04-11T18:17:25.804Z] ❌ Build failed.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: Stopping pipeline
+Finished: FAILURE
