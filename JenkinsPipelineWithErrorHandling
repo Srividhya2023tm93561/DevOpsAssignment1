@@ -1,0 +1,76 @@
+pipeline {
+    agent any
+    options {
+        timestamps()
+    }
+    
+    triggers {
+        githubPush()
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins_integration', url: 'https://github.com/Srividhya2023tm93561/DevopsAssignment1.git']])
+            }
+        }
+
+        stage('Build Main.java') {
+            steps {
+                script {
+                    try {
+                        bat 'javac Main.java'
+                    } catch (e) {
+                        echo "🚨 Build failed: ${e}"
+                        error("Stopping pipeline")
+                    }
+                }
+            }
+        }
+        
+        stage('Run Main.java') {
+            steps {
+                script {
+                    try {
+                        bat 'java Main'
+                    } catch (e) {
+                        echo "🚨 Error running Main: ${e}"
+                        error("Stopping pipeline")
+                    }
+                }
+            }
+        }
+
+        stage('Deploy to Staging') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo "Deploying to staging..."
+                bat 'call StagingDeploy.bat'
+            }
+        }
+
+        stage('Deploy to Production') {
+            when {
+                branch 'main'
+            }
+            input {
+                message "Approve deployment to PRODUCTION?"
+            }
+            steps {
+                echo "Deploying to production..."
+                bat 'call ProductionDeploy.bat'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "✅ Build passed."
+        }
+        failure {
+            echo "❌ Build failed."
+        }
+    }
+}
